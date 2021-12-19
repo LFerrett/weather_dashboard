@@ -1,0 +1,13 @@
+.hero {
+    font-family: 'Road Rage', cursive;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+.hero p {
+    font-size: 2rem;
+    text-align: center;
+}
