@@ -1,7 +1,7 @@
 var APIKey = "8756b0c1a73cc214da1eeb5ee10ebe91";
 var searchBtn = document.querySelector("#submit");
 var citySelected = document.querySelector('#searchTerm').value;
-var searchURL = "http://api.openweathermap.org/data/2.5/weather?q=" + citySelected + "&appid=" + APIKey;
+var searchURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySelected + "&appid=" + APIKey;
 
 var containerEl1 = document.querySelector('#container1');
 var containerEl2 = document.querySelector('#container2');
@@ -10,18 +10,19 @@ var containerEl4 = document.querySelector('#container4');
 var containerEl5 = document.querySelector('#container5');
 
 function pullWeather() {
+    console.log("citySelected");
 
-    fetch(searchURL)
+   // fetch(searchURL)
         // The browser fetches the resource from the remote server without first looking in the cache.
         // The browser will then update the cache with the downloaded resource.
-        cache: 'reload',
+    //    cache: 'reload',
       
-        then(function (response) {
-          return response.json();
-        })
-        then(function (data) {
-          console.log(data);
-        });
+    //    then(function (response) {
+    //      return response.json();
+    //    })
+    //    then(function (data) {
+   //       console.log(data);
+    //    });
       
 
 
