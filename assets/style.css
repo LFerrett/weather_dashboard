@@ -1,17 +1,54 @@
+.hidden {
+  display: none;
+}
+
 body {
-    padding: 10px;
+  padding: 10px;
 }
 
 .hero {
-    font-family: 'Road Rage', cursive;
+  font-family: "Road Rage", cursive;
 }
 
 .hero h1 {
-    font-size: 4rem;
-    text-align: center;
+  font-size: 4rem;
+  text-align: center;
 }
 
 .hero p {
-    font-size: 2rem;
-    text-align: center;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.forecastList li {
+  padding: 1%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+#currentConditions {
+  background-color: rgb(173, 173, 173);
+  border-radius: 6px;
+  padding: 5px;
+}
+
+#currentConditions h3 {
+  padding: 5px;
+  font-family: "Road Rage", cursive;
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+#currentList li {
+  padding: 5px;
+  text-align: center;
+}
+
+.purple {
+  background-color: #857fb8;
 }
