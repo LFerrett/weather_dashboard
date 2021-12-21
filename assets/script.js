@@ -69,8 +69,31 @@ function makeCities() {
 // current icon is equal to the <img> tag and the conditions list weather icon
 // set the attribute of the icon to the src file and use a dynamically created URL to append to the current city/icon
 // store and display current temperature, humidity, wind speed, UV index (may need to do more for UV index)
-
 }
+function pullUVI(lat, lon) {
+    var APIKey = "8756b0c1a73cc214da1eeb5ee10ebe91";
+    var uviUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`;
+  
+    fetch(uviUrl).then(function (response) {
+      response.json().then(function (data) {
+        createCurrentUvi(data);
+      });
+    });
+  }
+  
+  function getForecast(lat, lon) {
+    var APIKey = "8756b0c1a73cc214da1eeb5ee10ebe91";
+    var forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,current,alerts&units=imperial&appid=${APIKey}`;
+  
+    fetch(forecastUrl).then(function (response) {
+      response.json().then(function (data) {
+        createForecast(data);
+      });
+    });
+  }
+  
+  function setStorage() {
+  }
 
 // Figure out how to pull forecast weather, making a loop that stops when its pulled five days (OpenWeatherMap has seven day forecast)
 function createForecast(forecast) {
