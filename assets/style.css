@@ -1,23 +1,38 @@
+
+
 .hidden {
   display: none;
 }
 
 body {
   padding: 10px;
+  background-color: #fdeabc;
 }
 
 .hero {
-  font-family: "Road Rage", cursive;
+
+    
 }
 
 .hero h1 {
-  font-size: 4rem;
-  text-align: center;
+    color: #2b293f;
+    position: relative;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900;
+  font-size: 3rem;
+  text-align: left;
 }
 
 .hero p {
   font-size: 2rem;
   text-align: center;
+}
+
+#where {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 900;
+    font-size: 2rem;
+    padding-bottom: 10px;
 }
 
 .forecastList li {
@@ -37,7 +52,7 @@ ul {
 
 #currentConditions h3 {
   padding: 5px;
-  font-family: "Road Rage", cursive;
+  font-family: 'Heebo', sans-serif;
   font-size: 2.5rem;
   font-weight: 800;
   text-align: center;
@@ -49,6 +64,6 @@ ul {
   text-align: center;
 }
 
-.purple {
+.ispurple {
   background-color: #857fb8;
 }

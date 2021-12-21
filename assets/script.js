@@ -1,3 +1,4 @@
+// Variables for api key, search, search button, city list, containers for current chosen city, forecast, five day forecast, and empty cities array to track search history
 var APIKey = "8756b0c1a73cc214da1eeb5ee10ebe91";
 var cities = [];
 var search = $(".search");
@@ -8,6 +9,8 @@ var weatherContainer = $("#weatherContainer");
 var forecastContainer = $("#forecastContainer");
 var fiveDayForecast = $("#forecast");
 
+// Create listener to listen for click on the search button or enter on enter key
+// Check to see if the value of the search button is empty, if not, start the action
 searchBTN.click(function (event) {
   if (search.val() !== "") {
     executeWeather();
@@ -27,8 +30,9 @@ $(search).keypress(function (event) {
   }
 });
 
+// main function to execute all other functions
 function executeWeather() {
-  // event.preventDefault();
+  event.preventDefault();
   citiesList.removeClass("hidden");
   weatherContainer.removeClass("hidden");
   cities.push(search.val());
@@ -38,6 +42,10 @@ function executeWeather() {
   search.val("");
 }
 
+// grab the search term inputted and push it into the cities array
+// capture local storage and create the cities list search history
+// pull the weather from the API
+// clear the search input once it's captured
 function createCityList(lastCity) {
   searchBTN = $("<button>").addClass(
     "searchBTN BTN BTN-outline-secondary d-flex w-100"
@@ -51,6 +59,7 @@ function createCityList(lastCity) {
   });
 }
 
+// set local storage - strigifies cities for search history
 function setStorage() {
   localStorage.setItem("cities", JSON.stringify(cities));
 }
@@ -137,7 +146,7 @@ function createForecast(forecast) {
     var forcastedDay = moment(nextDay.dt * 1000).format("MMMM Do");
 
     var dayWeather = $("<div>").addClass(
-      "card purple d-flex text-white p-3 col-8 col-xl-2 col-md-4 col-sm-4 m-3"
+      "card ispurple d-flex text-white p-3 col-8 col-xl-2 col-md-4 col-sm-4 m-3"
     );
     fiveDayForecast.append(dayWeather);
 
