@@ -2,26 +2,25 @@
 var cities = [];
 var APIKey = "8756b0c1a73cc214da1eeb5ee10ebe91";
 
-var searchBtn = document.querySelector("#submit");
-var citySelected = document.querySelector('#searchTerm').value;
-var searchURL = "https://api.openweathermap.org/data/2.5/weather?q=" + citySelected + "&appid=" + APIKey;
+var search = $(".search");
+var searchBtn = $(".searchBtn");
+var cityBtn;
+var citiesList = $(".cities");
+var weatherContainer = $("#weatherContainer");
+var forecastContainer = $("#forecastContainer");
+var fiveDayForecast = $("#forecast");
 
-var containerEl1 = document.querySelector('#container1');
-var containerEl2 = document.querySelector('#container2');
-var containerEl3 = document.querySelector('#container3');
-var containerEl4 = document.querySelector('#container4');
-var containerEl5 = document.querySelector('#container5');
+var cities = [];
 
 // Create listener to listen for click on the search button
 // Check to see if the value of the search button is empty, if not, start the action
 searchBtn.click(function (event) {
-  if (search.val() !== "") {
-   // create massive function that captures all the actions needed
-    pullWeather();
-  } else {
-    alert("please enter a city");
-  }
-});
+    if (search.val() !== "") {
+      executeFunctions();
+    } else {
+      alert("Enter a city to see the weather!");
+    }
+  });
 
 // try to add a way for the enter button to initiate search
 // maybe find what the enter key code is and strictly look for that 
@@ -50,19 +49,25 @@ function makeCities() {
 
 // Connect and fetch OpenWeatherMap API (may have to do this multiple times for selected city, UV Index, then 5 day forecast)
 // using a function to fetch openweathermap api to get current weather conditions
-function getWeather(city) {
   // Make the URL a variable that includes both the user inputted city and the API key
   // fetch the URL, check for response
-  fetch(apiUrl).then(function (response) {
-    response.json().then(function (data) {
+
+  function getWeather(city) {
+    var APIKey = "8756b0c1a73cc214da1eeb5ee10ebe91";
+    var APIUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}&units=imperial`;
+  
+    fetch(APIUrl).then(function (response) {
+      response.json().then(function (data) {
+        createCurrentConditions(data, city);
+      });
+    });
+  }
  // Display the current weather conditions for the selected city
- var currentCity = $("#currentCity");
  // use selected city conditions and use moment.js to append the curry date to the current city
 // set icons based on weather conditions 
 // set current icon and add to icon class
 // current icon is equal to the <img> tag and the conditions list weather icon
 // set the attribute of the icon to the src file and use a dynamically created URL to append to the current city/icon
-
 // store and display current temperature, humidity, wind speed, UV index (may need to do more for UV index)
 
 }
@@ -107,5 +112,4 @@ function pullWeather() {
 //})
 }
 
-
-searchBtn.addEventListener("click", pullWeather);
+searchBtn.addEventListener("click", executeFunctions);
