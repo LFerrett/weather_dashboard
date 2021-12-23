@@ -2,7 +2,7 @@
 var APIKey = "8756b0c1a73cc214da1eeb5ee10ebe91";
 var cities = [];
 var search = $(".search");
-var searchBTN = $(".searchBTN");
+var searchBTN = $("#searchBTN");
 var historyBTN;
 var citiesList = $(".cities");
 var weatherContainer = $("#weatherContainer");
